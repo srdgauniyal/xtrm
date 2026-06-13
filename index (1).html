@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>XTRM — Rapper from Almora</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --red:#E24B4A;
+  --dark-red:#A32D2D;
+  --deep:#0a0a0a;
+  --card:#111111;
+  --border:#2a0a0a;
+  --text:#f0f0f0;
+  --muted:#888;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--deep);color:var(--text);font-family:'Inter',sans-serif;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;border-bottom:0.5px solid var(--border);background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);letter-spacing:5px;}
+.nav-links{display:flex;gap:28px;}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--red);}
+.nav-ig{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--red);text-decoration:none;letter-spacing:1px;border:0.5px solid var(--red);padding:6px 14px;border-radius:2px;transition:all 0.2s;}
+.nav-ig:hover{background:var(--red);color:#fff;}
+
+.hero{padding:100px 40px 80px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(ellipse at center,rgba(226,75,74,0.12) 0%,transparent 65%);pointer-events:none;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);border:0.5px solid rgba(226,75,74,0.4);padding:5px 16px;border-radius:20px;margin-bottom:24px;}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,18vw,160px);color:#fff;letter-spacing:10px;line-height:0.9;margin-bottom:6px;}
+.hero-name .accent{color:var(--red);}
+.hero-origin{font-size:13px;color:var(--muted);letter-spacing:4px;text-transform:uppercase;margin-bottom:40px;}
+.hero-origin span{color:var(--red);}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-fire{background:var(--red);color:#fff;border:none;padding:14px 32px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+.btn-fire:hover{background:var(--dark-red);}
+.btn-ghost{background:transparent;color:var(--text);border:0.5px solid #333;padding:14px 32px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--red);color:var(--red);}
+
+hr{border:none;border-top:0.5px solid var(--border);margin:0 40px;}
+
+section{padding:72px 40px;}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:3px;color:#fff;margin-bottom:32px;}
+
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;}
+.about-text p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:16px;}
+.about-text strong{color:var(--text);font-weight:500;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.stat-card{background:var(--card);border:0.5px solid var(--border);border-left:2px solid var(--red);padding:22px 18px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--red);letter-spacing:2px;}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
+
+/* MUSIC */
+.music-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.track-card{background:var(--card);border:0.5px solid var(--border);border-radius:2px;overflow:hidden;transition:border-color 0.2s;text-decoration:none;display:block;}
+.track-card:hover{border-color:var(--red);}
+.track-cover{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+.track-body{padding:16px 18px;}
+.track-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:#fff;}
+.track-artist{font-size:12px;color:var(--muted);margin:4px 0 14px;letter-spacing:1px;text-transform:uppercase;}
+.spotify-btn{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#1DB954;border:0.5px solid #1DB954;padding:8px 16px;border-radius:2px;text-decoration:none;transition:all 0.2s;}
+.spotify-btn:hover{background:#1DB954;color:#000;}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3px;}
+.gallery-img{width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:grayscale(20%);transition:filter 0.3s,transform 0.3s;}
+.gallery-img:hover{filter:grayscale(0%);transform:scale(1.02);}
+.gallery-item{overflow:hidden;}
+
+/* VIDEOS */
+.videos-note{font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.7;}
+.videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.video-card{background:var(--card);border:0.5px solid var(--border);overflow:hidden;transition:border-color 0.2s;cursor:pointer;text-decoration:none;display:block;}
+.video-card:hover{border-color:var(--red);}
+.video-thumb{background:#110808;height:130px;display:flex;align-items:center;justify-content:center;}
+.v-play{width:50px;height:50px;background:rgba(226,75,74,0.1);border:0.5px solid rgba(226,75,74,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--red);font-size:20px;transition:all 0.2s;}
+.video-card:hover .v-play{background:var(--red);color:#fff;border-color:var(--red);}
+.video-info{padding:14px 16px;}
+.video-title{font-size:13px;font-weight:500;color:var(--text);}
+.video-sub{font-size:11px;color:var(--muted);margin-top:4px;}
+
+/* BOOK */
+.book-wrap{background:var(--card);border:0.5px solid var(--border);padding:64px 40px;text-align:center;position:relative;overflow:hidden;}
+.book-bg{font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(226,75,74,0.03);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);letter-spacing:20px;white-space:nowrap;pointer-events:none;user-select:none;}
+.book-title{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;letter-spacing:5px;margin-bottom:14px;position:relative;}
+.book-sub{font-size:15px;color:var(--muted);margin-bottom:36px;line-height:1.8;max-width:460px;margin-left:auto;margin-right:auto;position:relative;}
+.book-sub strong{color:var(--text);font-weight:500;}
+.contact-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;}
+
+footer{padding:28px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);letter-spacing:4px;}
+.foot-text{font-size:12px;color:#333;}
+.foot-ig{font-size:12px;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.foot-ig:hover{color:var(--red);}
+
+@media(max-width:680px){
+  nav{padding:16px 20px;}
+  .nav-links{display:none;}
+  .hero{padding:60px 20px 50px;}
+  .hero-name{font-size:80px;}
+  section{padding:52px 20px;}
+  hr{margin:0 20px;}
+  .about-grid{grid-template-columns:1fr;gap:32px;}
+  .book-wrap{padding:48px 20px;}
+  .book-bg{font-size:80px;}
+  footer{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">XTRM</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#videos">Videos</a>
+    <a href="#book">Book Me</a>
+  </div>
+  <a class="nav-ig" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener">
+    <i class="ti ti-brand-instagram"></i> @xtrm.skitt
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Rapper &middot; Artist &middot; Performer</div>
+  <div class="hero-name">X<span class="accent">T</span>RM</div>
+  <div class="hero-origin">Almora born &middot; <span>Dehradun</span> grinding</div>
+  <div class="hero-btns">
+    <a class="btn-fire" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener">
+      <i class="ti ti-brand-instagram"></i> Follow on Instagram
+    </a>
+    <a class="btn-ghost" href="#book">
+      <i class="ti ti-microphone-2"></i> Book Me for Fests
+    </a>
+  </div>
+</div>
+
+<hr/>
+
+<section id="about">
+  <div class="eyebrow">The Artist</div>
+  <div class="sec-title">Who is XTRM?</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p><strong>XTRM</strong> is a raw, unfiltered voice from the hills of <strong>Almora</strong> — now making noise in <strong>Dehradun</strong>. Real rap built on real life, no industry games.</p>
+      <p>Every track is a chapter. Every verse is a statement. XTRM is building his career from the ground up — bars from the mountains, energy for the whole country.</p>
+      <p>If you want someone who shows up and shuts it down on stage — you found him.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Raw Energy</div></div>
+      <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Filters Used</div></div>
+      <div class="stat-card"><div class="stat-num">ALM</div><div class="stat-label">Almora Bred</div></div>
+      <div class="stat-card"><div class="stat-num">DDN</div><div class="stat-label">Dehradun Based</div></div>
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<section id="music">
+  <div class="eyebrow">Discography</div>
+  <div class="sec-title">Music</div>
+  <div class="music-grid">
+    <div class="track-card">
+      <img class="track-cover" src="WhatsApp%20Image%202026-06-13%20at%2010.47.50%20PM.jpeg" alt="KAID cover art"/>
+      <div class="track-body">
+        <div class="track-title">KAID</div>
+        <div class="track-artist">XTRM &middot; 2024</div>
+        <a class="spotify-btn" href="https://open.spotify.com/track/0r7kAUvv7ddyPVThkydlYR" target="_blank" rel="noopener">
+          <i class="ti ti-brand-spotify"></i> Play on Spotify
+        </a>
+      </div>
+    </div>
+    <div class="track-card">
+      <img class="track-cover" src="WhatsApp%20Image%202026-06-13%20at%2010.47.51%20PM%20(1).jpeg" alt="Touch It Down cover art"/>
+      <div class="track-body">
+        <div class="track-title">Touch It Down</div>
+        <div class="track-artist">XTRM &middot; 2024</div>
+        <a class="spotify-btn" href="https://open.spotify.com/track/5N9NOq1kHv39hIkmDpgdOg" target="_blank" rel="noopener">
+          <i class="ti ti-brand-spotify"></i> Play on Spotify
+        </a>
+      </div>
+    </div>
+    <div class="track-card">
+      <img class="track-cover" src="WhatsApp%20Image%202026-06-13%20at%2010.47.51%20PM.jpeg" alt="XTRM photo"/>
+      <div class="track-body">
+        <div class="track-title">More Coming Soon</div>
+        <div class="track-artist">XTRM &middot; 2025</div>
+        <a class="spotify-btn" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener">
+          <i class="ti ti-brand-instagram"></i> Stay Updated
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr/>
+
+<section id="gallery">
+  <div class="eyebrow">Gallery</div>
+  <div class="sec-title">Shots</div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img class="gallery-img" src="WhatsApp%20Image%202026-06-13%20at%2010.47.50%20PM.jpeg" alt="XTRM - KAID"/></div>
+    <div class="gallery-item"><img class="gallery-img" src="WhatsApp%20Image%202026-06-13%20at%2010.47.51%20PM.jpeg" alt="XTRM artist photo"/></div>
+    <div class="gallery-item"><img class="gallery-img" src="WhatsApp%20Image%202026-06-13%20at%2010.47.51%20PM%20(1).jpeg" alt="XTRM - Touch It Down"/></div>
+  </div>
+</section>
+
+<hr/>
+
+<section id="videos">
+  <div class="eyebrow">Visual</div>
+  <div class="sec-title">Videos</div>
+  <div style="background:var(--card);border:0.5px solid var(--border);padding:56px 40px;text-align:center;border-radius:2px;">
+    <i class="ti ti-brand-instagram" style="font-size:48px;color:var(--red);display:block;margin-bottom:20px;"></i>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:#fff;margin-bottom:12px;">Watch XTRM Live</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.8;max-width:400px;margin-left:auto;margin-right:auto;">All performance clips, freestyles, and behind the scenes are on Instagram. Follow to stay updated.</p>
+    <a class="btn-fire" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener" style="display:inline-flex;">
+      <i class="ti ti-brand-instagram"></i> @xtrm.skitt
+    </a>
+  </div>
+</section>
+
+<hr/>
+
+<section id="book">
+  <div class="book-wrap">
+    <div class="book-bg">BOOK</div>
+    <div class="book-title">Book XTRM</div>
+    <div class="book-sub">Want XTRM at your <strong>festival, college event, or show?</strong><br/>Hit up on Instagram or send an email. Let's make it loud.</div>
+    <div class="contact-row">
+      <a class="btn-fire" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener">
+        <i class="ti ti-brand-instagram"></i> DM on Instagram
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">XTRM</div>
+  <div class="foot-text">&copy; 2025 XTRM &middot; Almora, Uttarakhand</div>
+  <a class="foot-ig" href="https://instagram.com/xtrm.skitt" target="_blank" rel="noopener">@xtrm.skitt</a>
+</footer>
+
+</body>
+</html>
